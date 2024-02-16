@@ -131,10 +131,11 @@ export const profileStore = defineStore("profile", {
   },
   actions: {
     async fetch() {
+      const id = document.querySelector('meta[name="profile-id"]').content;
       if (!mutex.value) {
         mutex.value = true;
         api
-          .get("/profile.php")
+          .get(`/profile.php?id=${id}`)
           .then((res) => {
             const data = res?.data || null;
             if (!data) return;
@@ -183,6 +184,7 @@ export const profileStore = defineStore("profile", {
       country,
       monthAmount,
       tariff,
+      tariff_full,
       options,
       count,
       payment_gateway,
@@ -194,6 +196,7 @@ export const profileStore = defineStore("profile", {
         country,
         monthAmount,
         tariff,
+        tariff_full,
         tariff_extdata: options,
         count,
         payment_gateway,
