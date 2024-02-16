@@ -85,15 +85,15 @@ module.exports = configure(function (ctx) {
       server: {
         type: "http",
       },
-      port: 8080,
+      port: 8888,
       open: !true, // opens browser window automatically
-      // proxy: {
-      //   "/api": {
-      //     target: "http://a1call.local",
-      //     changeOrigin: false,
-      //     pathRewrite: { "^/api": "/api" },
-      //   },
-      // },
+      proxy: {
+        "/api": {
+          target: "http://a1call.docker",
+          changeOrigin: false,
+          pathRewrite: { "^/api": "/api" },
+        },
+      },
     },
 
     // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-framework

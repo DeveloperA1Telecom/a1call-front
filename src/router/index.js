@@ -81,7 +81,7 @@ export default route(function (/* { store, ssrContext } */) {
       // console.log("isAccess: next()");
       next();
     } else {
-      const obj = { name: isAccess.redirect };
+      const obj = { name: isAccess?.redirect };
       // console.log("isAccess: next()", obj);
       next(obj);
     }
