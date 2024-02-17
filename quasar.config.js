@@ -85,15 +85,14 @@ module.exports = configure(function (ctx) {
       server: {
         type: "http",
       },
-
-      port: 8888,
-      // host: "0.0.0.0",
+      port: 443,
       open: !true, // opens browser window automatically
       proxy: {
         "/api": {
           target: "https://a1call.docker",
           changeOrigin: false,
           pathRewrite: { "^/api": "/api" },
+          "secure": false,
         },
       },
     },
